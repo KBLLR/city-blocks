@@ -1,6 +1,6 @@
 ## CityBlocks
 
-CityBlocks is a Vite + React + Three.js experience for exploring building footprints with a lightweight Cloudflare Worker backend.
+CityBlocks is a Vite + React + Three.js experience for exploring building footprints. The app now runs entirely as a client-side experience, making it easy to host on any static platform (Vercel, Netlify, etc.).
 
 ### 1. Requirements
 - Node.js 20+
@@ -20,7 +20,7 @@ pnpm run dev
 | `pnpm run lint` | ESLint (flat config). |
 | `pnpm run build` | Type-check then build the client bundle. |
 | `pnpm run preview` | Serve the built bundle locally (matches Vercel). |
-| `pnpm run check` | CI parity (tsc, Vite build, Wrangler dry-run). |
+| `pnpm run check` | CI parity (tsc + Vite build). |
 
 > Always run `pnpm run lint && pnpm run build` (or `pnpm run check`) before pushing.
 

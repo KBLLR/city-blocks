@@ -4,20 +4,18 @@ Welcome to the Smart Campus / CityBlocks workspace. This guide keeps human and A
 
 ## 1. Repository Layout
 - `src/react-app/` — React + Three.js client (components, hooks, pages, global styles). Path alias `@/` maps to `./src`.
-- `src/worker/` — Cloudflare Worker entry point plus API routes (see `wrangler.json` for bindings to D1 + R2).
-- `src/shared/` — Types and Zod schemas shared between the client and worker.
+- `src/shared/` — Types and Zod schemas shared between app modules.
 - `agents-hub/` — Operational docs (`AUDIT-log.md`, `tasks.md`, project templates, session templates).
-- Root configs — `package.json`, `tsconfig*.json`, `vite.config.ts`, `tailwind.config.js`, `eslint.config.js`, `wrangler.json`. Keep these in sync with any tooling changes.
+- Root configs — `package.json`, `tsconfig*.json`, `vite.config.ts`, `tailwind.config.js`, `eslint.config.js`. Keep these in sync with any tooling changes.
 
 > Need a new initiative? Copy `agents-hub/project-template/` and follow its README before writing code.
 
 ## 2. Environment & Commands
 1. Install deps once: `npm install` (pnpm/yarn work too, but keep lockfile consistent).
-2. Dev server: `npm run dev` (Vite, served on `http://localhost:5173`). Worker stubs proxy via Vite.
+2. Dev server: `npm run dev` (Vite, served on `http://localhost:5173`).
 3. Type-check + build: `npm run build` (runs `tsc -b` then `vite build`).
 4. Lint: `npm run lint` (ESLint flat config, React Hooks + Refresh plugins).
-5. Pre-flight / CI parity: `npm run check` (type-checks, builds, then `wrangler deploy --dry-run`). Configure `wrangler login` locally before running.
-6. Cloudflare bindings live in `wrangler.json`; respect the declared `DB` (D1) and `R2_BUCKET` bindings when touching worker code.
+5. Pre-flight / CI parity: `npm run check` (type-checks + Vite build).
 
 Always run `npm run lint && npm run check` before opening a PR or handing off work. Capture failures + fixes in your session log.
 
@@ -27,7 +25,6 @@ Always run `npm run lint && npm run check` before opening a PR or handing off wo
 - **React patterns**: Functional components only. Derive expensive values with `useMemo`, memoize callbacks passed down, prefer composition over prop drilling.
 - **Styling**: Tailwind is available via `tailwind.config.js`; global overrides live in `src/react-app/index.css`. Co-locate component-specific styles next to the component when possible.
 - **Three.js / rendering**: Heavy scene logic belongs in dedicated hooks/components under `src/react-app/components`. Document math helpers or geospatial transforms inline.
-- **Worker code**: Keep handlers pure, schema-validate input, and gate external calls with clear timeouts/retries (see `Home.tsx` for retry style).
 
 ## 4. Workflow Expectations
 - **Backlog**: Track all tasks in `agents-hub/tasks.md`. Every entry needs priority, owner, and a short research note or link trail.

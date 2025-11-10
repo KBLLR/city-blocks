@@ -20,7 +20,6 @@
     "zod": "^4.1.12"
   },
   "devDependencies": {
-    "@cloudflare/vite-plugin": "^1.14.0",
     "@eslint/js": "9.39.1",
     "@types/node": "24.10.0",
     "@types/react": "19.2.2",
@@ -35,13 +34,11 @@
     "tailwindcss": "^3.4.18",
     "typescript": "5.9.3",
     "typescript-eslint": "8.46.3",
-    "vite": "^7.2.2",
-    "wrangler": "^4.46.0"
+    "vite": "^7.2.2"
   },
   "scripts": {
     "build": "tsc -b && vite build",
-    "cf-typegen": "wrangler types",
-    "check": "tsc && vite build && wrangler deploy --dry-run",
+    "check": "tsc && vite build",
     "dev": "vite",
     "lint": "eslint .",
     "preview": "vite preview --host 0.0.0.0 --port 4173"

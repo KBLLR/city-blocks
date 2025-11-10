@@ -25,8 +25,7 @@ pnpm run dev                 # optional manual QA
    - `VITE_GENAI_API_KEY`
    - `VITE_HUGGINGFACE_API_KEY`
    - `VITE_OLLAMA_API_KEY`
-   - (Optional) Cloudflare tokens if the Worker bundle is deployed elsewhere.
-4. Vercel picks up `vercel.json` for routing (SPA fallback) and secret references (`@openai_api_key`, etc.). Create the corresponding secrets via `vercel env add`.
+4. Vercel picks up `vercel.json` for routing (SPA fallback). Provide environment variables directly in the project settings or via `vercel env`.
 
 ## 4. Preview & Production
 - Each PR / commit to non-`main` branches creates a Vercel Preview deployment.
