@@ -1,0 +1,78 @@
+project:
+  id_prefix: CBG
+  owner: "@davidcaballero"
+  variant: HITL
+  intent: "Deliver a UIL-driven 3D platform where requested building blocks spawn centered and editable."
+
+backlog:
+  - id: CBG-101
+    title: "Port UIL platform into React/Vite"
+    description: "Recreate the `uil_3d.html` scene (OrbitControls, Landscape, SuperSky, GUI scaffold) inside the app shell."
+    priority: high
+    owner: "@davidcaballero"
+    research: ["uil_3d.html", "pmndrs/uil", "r3f + UIL integration"]
+  - id: CBG-102
+    title: "Center requested building block on the platform"
+    description: "Load the selected footprint/mesh and align it with the platform origin so GUI tweaks remain predictable."
+    priority: high
+    owner: "@davidcaballero"
+    research: ["building anchoring", "bounding box recenter"]
+  - id: CBG-103
+    title: "Expose GUI controls for building + environment"
+    description: "Add GUI groups for materials, height exaggeration, lighting/sky toggles, and persist temporary presets."
+    priority: medium
+    owner: "@davidcaballero"
+    research: ["UIL control groups", "postprocessing toggles"]
+  - id: CBG-104
+    title: "Extract procedural platform helpers"
+    description: "Break the `uil_3d.html` procedural terrain/platform code into reusable modules (terrain, sky, platform mesh) that can be imported by React."
+    priority: medium
+    owner: "@davidcaballero"
+    research: ["three.js modularization", "platform helper export pattern"]
+  - id: CBG-105
+    title: "Wrap UIL GUI in React"
+    description: "Implement a React hook/component that mounts the UIL GUI, syncs state with React, and forwards control handlers to the scene."
+    priority: high
+    owner: "@davidcaballero"
+    research: ["uil + React integration", "effect cleanup patterns"]
+  - id: CBG-106
+    title: "Modernize Landscape shader + callbacks"
+    description: "Patch the imported Landscape material to use Three r180 shader chunks (vMapUv, USE_COLOR) and provide safe callbacks to avoid runtime crashes."
+    priority: high
+    owner: "@davidcaballero"
+    research: ["three r180 shader chunks", "custom onBeforeCompile patterns"]
+
+in_progress:
+  - id: CBG-101
+    title: "Port UIL platform into React/Vite"
+    owner: "@davidcaballero"
+    started: 2025-11-09
+    notes: "Vendored UIL helpers and mounted the ProceduralPlatform skeleton inside Home.tsx."
+  - id: CBG-102
+    title: "Center requested building block on the platform"
+    owner: "@davidcaballero"
+    started: 2025-11-09
+    notes: "Footprint selection now isolates the nearest building, recenters it, and exposes UIL overrides."
+  - id: CBG-104
+    title: "Extract procedural platform helpers"
+    owner: "@davidcaballero"
+    started: 2025-11-09
+    notes: "Copied Landscape/SuperSky/Water modules plus textures/GLSL assets into src/lib with strict TS shims."
+  - id: CBG-106
+    title: "Modernize Landscape shader + callbacks"
+    owner: "@davidcaballero"
+    started: 2025-11-09
+    notes: "Updated Landscape to use current Three.js APIs and shader chunk names; added safe callbacks."
+  - id: CBG-105
+    title: "Wrap UIL GUI in React"
+    owner: "@davidcaballero"
+    started: 2025-11-09
+    notes: "UIL panel mounts via DOM overlay with working transforms; needs projection onto platform next."
+
+review: []
+
+done:
+  - id: CBG-100
+    title: "Bootstrap cityblocks-gui initiative"
+    completed: 2025-11-09
+    outcome: "Project README, tasks, and initial session log created."

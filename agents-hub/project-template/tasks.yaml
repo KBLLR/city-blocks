@@ -1,0 +1,17 @@
+project:
+  id_prefix: PROJ
+  owner: "@owner-handle"
+  variant: HITL # HITL | SEMI | UNSUPERVISED
+  intent: "Summarize the project's guiding objective"
+
+backlog:
+  - id: PROJ-101
+    title: "Describe the first milestone"
+    description: "Outline scope, success metrics, and dependencies."
+    priority: high
+    owner: "@owner-handle"
+    research: ["topic keywords"]
+
+in_progress: []
+review: []
+done: []

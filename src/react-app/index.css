@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.font-inter {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.font-playfair {
+  font-family: 'Playfair Display', Georgia, serif;
+}

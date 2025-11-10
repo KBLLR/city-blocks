@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "framework": "vite",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    }
+  ],
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/.*", "dest": "/index.html" }
+  ],
+  "env": {
+    "VITE_OPENAI_API_KEY": "@openai_api_key",
+    "VITE_GENAI_API_KEY": "@genai_api_key",
+    "VITE_HUGGINGFACE_API_KEY": "@huggingface_api_key",
+    "VITE_OLLAMA_API_KEY": "@ollama_api_key"
+  }
+}

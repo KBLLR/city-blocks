@@ -1,0 +1,35 @@
+project:
+  id_prefix: CRH
+  owner: "@davidcaballero"
+  variant: HITL
+  intent: "Harden CityBlocks so GitHub → CI → Vercel deploys are effortless."
+
+backlog:
+  - id: CRH-101
+    title: "GitHub hygiene"
+    description: "Add CI workflow, issue/PR templates, and contributor docs aligned with AGENTS.md."
+    priority: high
+    owner: "@davidcaballero"
+    research:
+      - "github actions pnpm"
+      - "conventional pr template examples"
+  - id: CRH-102
+    title: "Deployment + env scaffolding"
+    description: "Document env vars, provide .env.example, and capture deploy flows in README/DEPLOYMENT.md."
+    priority: high
+    owner: "@davidcaballero"
+    research:
+      - "vercel env vite"
+      - "dotenv best practices"
+  - id: CRH-103
+    title: "Vercel config + secrets"
+    description: "Check in vercel.json + configure build output, list prod secrets, and script preview smoke tests."
+    priority: medium
+    owner: "@davidcaballero"
+    research:
+      - "vercel static build config"
+      - "pnpm preview vercel"
+
+in_progress: []
+review: []
+done: []

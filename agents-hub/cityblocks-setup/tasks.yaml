@@ -1,0 +1,33 @@
+project:
+  id_prefix: CBS
+  owner: "@davidcaballero"
+  variant: HITL # HITL | SEMI | UNSUPERVISED
+  intent: "Stabilize CityBlocks by removing Mocha scaffolding and shipping a local API key UX."
+
+backlog:
+  - id: CBS-103
+    title: "Remove remaining any types in Home scene"
+    description: "Replace temporary anys in Home.tsx with typed helpers for footprints + materials so lint passes."
+    priority: medium
+    owner: "@davidcaballero"
+    research: ["react-three type safety", "ExtrudeGeometry typing"]
+  - id: CBS-104
+    title: "LLM provider expansion"
+    description: "Wire Gemini, Hugging Face, and Ollama inference paths once APIs are confirmed."
+    priority: low
+    owner: "@davidcaballero"
+    research: ["Gemini client", "HuggingFace Inference API", "Ollama remote auth"]
+
+in_progress: []
+
+review: []
+
+done:
+  - id: CBS-101
+    title: "Reset dependencies and remove Mocha tooling"
+    completed: 2025-11-09
+    outcome: "Project renamed to cityblocks, Mocha plugins removed, deps bumped to latest stable, README refreshed."
+  - id: CBS-102
+    title: "Add local API key manager + worker headers"
+    completed: 2025-11-09
+    outcome: "Floating key button stores OpenAI/Gemini/HF/Ollama keys locally and the worker trusts request headers."
